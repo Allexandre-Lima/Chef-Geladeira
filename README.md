@@ -1,3 +1,5 @@
+<img width="1536" height="1024" alt="ChatGPT Image 5 de out  de 2026, 14_27_35" src="https://github.com/user-attachments/assets/158c7788-560e-42c8-aa66-11157f93b1d4" />
+
 # Chef de Geladeira
 
 Chatbot culinário com IA: o usuário conta o que tem em casa e o agente sugere receitas com foto, informa calorias e macronutrientes e responde dúvidas de substituição e conservação. O diferencial é o **sistema de feedback**: as avaliações dos usuários melhoram o prompt do agente, e cada nova versão só entra em uso depois de passar em **testes de regressão**.
