@@ -1,4 +1,4 @@
-<img width="1536" height="1024" alt="ChatGPT Image 5 de out  de 2026, 14_27_35" src="https://github.com/user-attachments/assets/158c7788-560e-42c8-aa66-11157f93b1d4" />
+<img width="1536" height="1024" alt="Chef de Geladeira" src="https://github.com/user-attachments/assets/158c7788-560e-42c8-aa66-11157f93b1d4" />
 
 # Chef de Geladeira
 
