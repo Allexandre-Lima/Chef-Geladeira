@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chef de Geladeira</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23F47B20'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-icon" data-icon="hat"></span>
+      <div class="brand-name">Chef de<br><span>Geladeira</span></div>
+    </div>
+    <nav>
+      <button class="nav-btn active" data-view="chat"><span data-icon="chat"></span> Chat</button>
+      <button class="nav-btn" data-view="feedback"><span data-icon="sliders"></span> Feedback e melhoria <span class="alert-dot" id="nav-alert" hidden></span></button>
+    </nav>
+    <div class="tagline">
+      <strong>Menos desperdício, mais sabor.</strong>
+      <p>Sua geladeira, infinitas possibilidades.</p>
+    </div>
+  </aside>
+
+  <main>
+    <section id="view-chat" class="view active">
+      <div class="layout">
+        <div class="col-main">
+          <header class="greeting">
+            <h1>Olá!</h1>
+            <p>Transforme o que você tem na geladeira em <b>receitas incríveis</b>.</p>
+            <small>O Chef analisa seus ingredientes, sugere pratos e informa as calorias.</small>
+          </header>
+
+          <div class="card chat-card">
+            <div class="intro">
+              <span class="avatar chef" data-icon="hat"></span>
+              <div class="bubble">Me conte o que você tem na geladeira e como posso ajudar hoje.</div>
+            </div>
+            <div class="chips">
+              <button class="chip" data-q="Tenho frango, arroz e cenoura. O que posso fazer?">Receitas com frango e arroz</button>
+              <button class="chip" data-q="Quantas calorias tem 100 g de leite condensado?">Calorias do leite condensado</button>
+              <button class="chip" data-q="Não tenho ovo. O que uso no bolo?">Trocar ovo no bolo</button>
+              <button class="chip" data-q="Por quanto tempo o arroz cozido dura na geladeira?">Conservar arroz cozido</button>
+            </div>
+            <form id="chat-form" autocomplete="off">
+              <input id="chat-input" type="text" maxlength="1000" placeholder="Ex.: Tenho frango, arroz e cenoura..." aria-label="Sua pergunta">
+              <button class="pri icon-btn" type="submit" aria-label="Enviar"><span data-icon="send"></span></button>
+            </form>
+          </div>
+
+          <div class="thread-head" id="thread-head" hidden>
+            <h2>Conversa</h2>
+            <button id="new-chat">Nova conversa</button>
+          </div>
+          <div id="thread"></div>
+        </div>
+
+        <aside class="col-side">
+          <div class="card side-card">
+            <h3>Prompt do chef</h3>
+            <p id="aside-version" class="muted">Carregando...</p>
+            <p id="aside-pending" class="muted"></p>
+            <button data-goto="feedback">Ver feedback e melhoria</button>
+          </div>
+          <div class="card side-card tip">
+            <h3>Dica do Chef</h3>
+            <p id="tip"></p>
+          </div>
+          <div class="card side-card">
+            <h3>Fontes de dados</h3>
+            <p class="muted">TheMealDB (receitas), USDA FoodData Central (nutrição) e uma base de conhecimento culinária em ChromaDB.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="view-feedback" class="view">
+      <header class="greeting">
+        <h1>Feedback e melhoria</h1>
+        <p>Avalie respostas e acompanhe como o prompt do chef evolui.</p>
+      </header>
+      <div class="metrics" id="metrics"></div>
+      <div class="banner" id="auto-banner"></div>
+      <div id="improve-result"></div>
+
+      <div class="grid-2">
+        <div>
+          <h2>Enviar feedback</h2>
+          <div class="card">
+            <label class="field">Sobre qual resposta?
+              <select id="fb-target"></select>
+            </label>
+            <div class="row">
+              <button id="fb-up" type="button"><span data-icon="up"></span> Boa</button>
+              <button id="fb-down" type="button"><span data-icon="down"></span> Ruim</button>
+            </div>
+            <label class="field">Sugestão de melhoria
+              <textarea id="fb-comment" rows="3" maxlength="500" placeholder="Ex.: Quero só 2 receitas, com 3 passos cada."></textarea>
+            </label>
+            <button class="pri" id="fb-send" type="button">Enviar feedback</button>
+            <div id="fb-msg" class="msg-line"></div>
+          </div>
+
+          <h2>Prompt atual</h2>
+          <pre class="code" id="active-prompt"></pre>
+          <button class="pri" id="btn-improve"><span data-icon="refresh"></span> Analisar agora</button>
+        </div>
+        <div>
+          <h2>Versões do prompt</h2>
+          <div id="versions"></div>
+        </div>
+      </div>
+
+      <h2>Histórico de feedbacks</h2>
+      <div class="card table-wrap"><table id="fb-table"></table></div>
+    </section>
+  </main>
+</div>
+<div id="toast" class="toast" hidden></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
